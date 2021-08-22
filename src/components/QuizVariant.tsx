@@ -12,7 +12,7 @@ const QuizVariant: React.FC<Properties> = (properties) => {
 
   return (
     <div
-      className={`btn grid flex-grow text-base lg:text-3xl h-32 place-items-center p-4 m-2 ${
+      className={`btn grid flex-grow text-white text-base lg:text-3xl h-32 place-items-center p-4 m-2 ${
         clicked ? (correct ? "btn-success" : "btn-error") : ""
       }`}
       onClick={() => setClicked(!clicked)}

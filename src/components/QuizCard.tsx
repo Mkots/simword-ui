@@ -19,7 +19,11 @@ const QuizCard: React.FC<IProperties> = (properties) => {
   return (
     <div className="card shadow flex-grow max-w-screen-lg px-4 bg-white">
       <div className="card-body">
-        <div className="card-title uppercase text-black text-center text-lg lg:text-3xl">
+        {/* eslint-disable-next-line react/style-prop-object */}
+        <div
+          className="card-title uppercase text-center text-lg lg:text-3xl"
+          style={{ color: "black" }}
+        >
           {en}
         </div>
       </div>
