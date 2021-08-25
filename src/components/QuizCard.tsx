@@ -17,7 +17,10 @@ const QuizCard: React.FC<IProperties> = (properties) => {
     nextHandler,
   } = properties;
   return (
-    <div className="card shadow flex-grow max-w-screen-lg px-4 bg-white">
+    <div
+      className="card shadow flex-grow max-w-screen-lg px-4 bg-white"
+      data-cy="QuizCard"
+    >
       <div className="card-body">
         {/* eslint-disable-next-line react/style-prop-object */}
         <div
