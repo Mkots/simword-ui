@@ -16,6 +16,7 @@ const QuizVariant: React.FC<Properties> = (properties) => {
         clicked ? (correct ? "btn-success" : "btn-error") : ""
       }`}
       onClick={() => setClicked(!clicked)}
+      data-cy="QuizVariant"
     >
       {answer}
     </div>
