@@ -3,9 +3,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { registerSW } from "virtual:pwa-register";
+import TagManager from "react-gtm-module";
 import "./index.css";
 
 registerSW();
+
+const tagManagerArguments = {
+  gtmId: "GTM-TB2XM7N",
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+TagManager.initialize(tagManagerArguments);
 
 const queryClient = new QueryClient({
   defaultOptions: {
