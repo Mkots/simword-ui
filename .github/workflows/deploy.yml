@@ -1,7 +1,9 @@
-name: Deploy
+name: "Deploy"
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
 
 jobs:
@@ -27,4 +29,3 @@ jobs:
 
       - name: Build new version
       - run: yarn build
-
