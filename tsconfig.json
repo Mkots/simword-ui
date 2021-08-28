@@ -14,5 +14,5 @@
     "strict": true,
     "target": "ESNext"
   },
-  "include": ["src", "vite.config.ts", "global.d.ts"]
+  "include": ["src", "vite.config.ts", "global.d.ts", "../node_modules/@types"]
 }

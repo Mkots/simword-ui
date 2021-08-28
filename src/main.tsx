@@ -5,8 +5,15 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { registerSW } from "virtual:pwa-register";
 import TagManager from "react-gtm-module";
 import "./index.css";
+import makeServer from "./api/mirage";
 
 registerSW();
+
+const environment = process.env.NODE_ENV;
+
+if (environment !== "production") {
+  makeServer({ environment });
+}
 
 const tagManagerArguments = {
   gtmId: "GTM-TB2XM7N",
