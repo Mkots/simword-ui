@@ -1,9 +1,10 @@
 export interface IExercise {
+  id?: number;
   en: string;
   correct: string;
-  variants: [string, string, string, string];
+  variants: string[];
 }
 
 export interface IWord {
-  exercise?: IExercise;
+  exercise: IExercise;
 }
