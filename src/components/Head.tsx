@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 
 interface Properties {
   title: string;
 }
-export default function Head({ title }: Properties): null {
+const Head: FC<Properties> = (properties: Properties) => {
+  const { title } = properties;
   useEffect(() => {
     document.title = title;
   }, [title]);
 
-  // eslint-disable-next-line unicorn/no-null
   return null;
-}
+};
+
+export default Head;
