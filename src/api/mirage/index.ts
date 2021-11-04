@@ -21,6 +21,10 @@ export default function makeServer({
       this.get("exercise", (schema) => ({
         exercise: schema.db.exercises.find(Math.floor(Math.random() * 5 + 1)),
       }));
+
+      this.get("taglist", () => ({
+        tags: [1, 20, 30, 40],
+      }));
     },
 
     seeds(server) {

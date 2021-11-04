@@ -8,3 +8,7 @@ export interface IExercise {
 export interface IWord {
   exercise: IExercise;
 }
+
+export interface TagList {
+  tags: Array<number>;
+}

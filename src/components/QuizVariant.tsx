@@ -14,9 +14,12 @@ const QuizVariant: React.FC<Properties> = (properties) => {
   const [clicked, setClicked] = useState<boolean>(false);
 
   const clickHandler = () => {
+    if (clicked) return;
     setClicked(!clicked);
     if (correct) {
       setScore(score + 1);
+    } else {
+      setScore(score - 1);
     }
   };
 
