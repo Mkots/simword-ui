@@ -7,7 +7,9 @@ import QuizCard from "components/QuizCard";
 import LoadingOrError from "components/LoadingOrError";
 
 import getWord from "api/getWord";
+import getTagsList from "../api/getTagsList";
 import ScoreContext from "../contexts/ScoreContext";
+import { TagList } from "../types";
 
 export default function WordPage(): ReactElement {
   const [wordId, setWordId] = useState(uuid());
@@ -19,17 +21,33 @@ export default function WordPage(): ReactElement {
     () => getWord(wordId, difficult)
   );
 
+  const {
+    isLoading: isTagsLoading,
+    isError: isTagsError,
+    error: tagsError,
+    data: tagsData,
+  } = useQuery(["list", 0], () => getTagsList());
+
+  const getDifficult = (tagsListObject?: TagList): number => {
+    if (!tagsListObject) return 1;
+    if (Math.floor(score / 10) > tagsListObject?.tags.length - 1) {
+      return tagsListObject.tags[tagsListObject?.tags.length - 1];
+    }
+    return tagsListObject.tags[Math.floor(score / 10)];
+  };
+
   const nextHandler = () => {
     setWordId(uuid());
-    if (score > 5) {
-      setDifficult(2);
-    } else if (score > 10) {
-      setDifficult(3);
-    }
+
+    setDifficult(getDifficult(tagsData));
   };
 
   if (isLoading || isError) {
     return <LoadingOrError error={error as Error} />;
+  }
+
+  if (isTagsLoading || isTagsError) {
+    return <LoadingOrError error={tagsError as Error} />;
   }
 
   return (
