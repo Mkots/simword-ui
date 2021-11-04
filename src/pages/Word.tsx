@@ -13,7 +13,7 @@ import { TagList } from "../types";
 
 export default function WordPage(): ReactElement {
   const [wordId, setWordId] = useState(uuid());
-  const [difficult, setDifficult] = useState(1);
+  const [difficult, setDifficult] = useState<number | undefined>();
   const [score, setScore] = useState(0);
 
   const { isLoading, isError, error, data } = useQuery(
