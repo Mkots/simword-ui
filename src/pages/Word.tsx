@@ -14,7 +14,8 @@ import { TagList } from "../types";
 export default function WordPage(): ReactElement {
   const [wordId, setWordId] = useState(uuid());
   const [difficult, setDifficult] = useState<number | undefined>();
-  const [score, setScore] = useState(0);
+  const scoreState = useState(0);
+  const [score] = scoreState;
 
   const { isLoading, isError, error, data } = useQuery(
     ["word", wordId, "tag", difficult],
@@ -54,7 +55,7 @@ export default function WordPage(): ReactElement {
     <>
       <TabHead title={`Score: ${score}`} />
       <div className="flex items-center justify-center mx-auto px-4 w-full h-screen">
-        <ScoreContext.Provider value={[score, setScore]}>
+        <ScoreContext.Provider value={scoreState}>
           <QuizCard word={data} nextHandler={nextHandler} />
         </ScoreContext.Provider>
       </div>
