@@ -3183,10 +3183,10 @@ cz-conventional-changelog@3.3.0:
   optionalDependencies:
     "@commitlint/load" ">6.1.1"
 
-daisyui@^1.13.2:
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.13.2.tgz#61daeba7448d2c1a8a9ca1396d5f3126f092a4d4"
-  integrity sha512-aG+2NiyMIBRxgm5KDB93gbA6DWbjnqxkQ/+H1nUaVc7pesThRtpf4AjJED6FI6h2603FF70+N9akbq6lUvV+Gg==
+daisyui@^1.14.3:
+  version "1.14.3"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.14.3.tgz#ea385af9d7e76288e0f1765d884de2cc07e83838"
+  integrity sha512-wnbgJI+00SD0w9UnzlDeDCJI/FCyiyx1rJ8+h8JO66TJ/0/NFu7visSHvRdKIh2eFYucevp8pdTL1FZaoChNlg==
 
 damerau-levenshtein@^1.0.6:
   version "1.0.7"
