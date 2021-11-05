@@ -23,10 +23,7 @@ const QuizCard: React.FC<IProperties> = (properties) => {
     >
       <div className="card-body">
         {/* eslint-disable-next-line react/style-prop-object */}
-        <div
-          className="card-title uppercase text-center text-lg lg:text-3xl"
-          style={{ color: "black" }}
-        >
+        <div className="card-title uppercase text-black text-center text-lg lg:text-3xl">
           {en}
         </div>
       </div>

@@ -15,16 +15,13 @@ const QuizVariant: React.FC<Properties> = (properties) => {
 
   const clickHandler = () => {
     if (clicked) return;
-    setClicked(!clicked);
-    if (correct) {
-      setScore(score + 1);
-    } else {
-      setScore(score - 1);
-    }
+    setClicked(true);
+    setScore(correct ? score + 1 : score - 1);
   };
 
   return (
-    <div
+    <button
+      type="button"
       className={`btn grid flex-grow text-white text-base lg:text-3xl h-32 place-items-center p-4 m-2 ${
         clicked ? (correct ? "btn-success" : "btn-error") : ""
       }`}
@@ -32,7 +29,7 @@ const QuizVariant: React.FC<Properties> = (properties) => {
       data-cy="QuizVariant"
     >
       {answer}
-    </div>
+    </button>
   );
 };
 
