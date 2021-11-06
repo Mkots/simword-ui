@@ -2,7 +2,7 @@ import React from "react";
 
 import QuizVariant from "./QuizVariant";
 
-import { IExercise } from "../types";
+import { IExercise } from "../../types";
 
 type Properties = Omit<IExercise, "en">;
 

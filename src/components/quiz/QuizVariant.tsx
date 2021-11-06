@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
-import ScoreContext from "../contexts/ScoreContext";
+import ScoreContext from "../../contexts/ScoreContext";
 
 interface Properties {
   answer: string;
+  // eslint-disable-next-line react/require-default-props
   correct?: boolean;
 }
 
-const QuizVariant: React.FC<Properties> = (properties) => {
-  const { answer, correct } = properties;
-
+const QuizVariant: React.FC<Properties> = ({ answer, correct }) => {
   const [score, setScore] = useContext(ScoreContext);
 
   const [clicked, setClicked] = useState<boolean>(false);

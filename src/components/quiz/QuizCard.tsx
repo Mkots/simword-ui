@@ -1,21 +1,19 @@
 import React from "react";
-import { IWord } from "../types";
+import { IWord } from "../../types";
 import QuizVariants from "./QuizVariants";
 
 interface IProperties {
+  // eslint-disable-next-line react/require-default-props
   word?: IWord;
   nextHandler: () => void;
 }
 
-const QuizCard: React.FC<IProperties> = (properties) => {
+const QuizCard: React.FC<IProperties> = ({ word, nextHandler }) => {
   // eslint-disable-next-line react/destructuring-assignment
-  if (!properties.word?.exercise) return null;
+  if (!word?.exercise) return null;
   const {
-    word: {
-      exercise: { en, correct, variants },
-    },
-    nextHandler,
-  } = properties;
+    exercise: { en, correct, variants },
+  } = word;
   return (
     <div
       className="card shadow flex-grow max-w-screen-lg px-4 bg-white"

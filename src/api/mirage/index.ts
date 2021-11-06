@@ -25,6 +25,13 @@ export default function makeServer({
       this.get("taglist", () => ({
         tags: [1, 20, 30, 40],
       }));
+
+      this.get("gaps/exercise", () => ({
+        sentence: "They all assume that Penny will provide hospitality.",
+        word: "granted",
+        task: "Everyone ___ Penny will provide hospitality.",
+        answer: "takes it for granted that",
+      }));
     },
 
     seeds(server) {

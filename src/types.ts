@@ -12,3 +12,10 @@ export interface IWord {
 export interface TagList {
   tags: Array<number>;
 }
+
+export interface IGap {
+  sentence: string;
+  word: string;
+  task: string;
+  answer: string;
+}
