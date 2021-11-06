@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { v4 as uuid } from "uuid";
 
 import TabHead from "components/Head";
-import QuizCard from "components/QuizCard";
+import QuizCard from "components/quiz/QuizCard";
 import LoadingOrError from "components/LoadingOrError";
 
 import getWord from "api/getWord";
