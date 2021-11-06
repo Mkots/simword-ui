@@ -9,7 +9,7 @@ import LoadingOrError from "../components/LoadingOrError";
 const Gaps: React.FC = () => {
   const [gapId, setGapId] = useState(uuid());
 
-  const { isLoading, isError, error, data } = useQuery(["word"], () =>
+  const { isLoading, isError, error, data } = useQuery(["gapId", gapId], () =>
     getGap(gapId)
   );
 
