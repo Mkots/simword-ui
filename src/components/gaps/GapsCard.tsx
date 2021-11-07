@@ -12,7 +12,7 @@ const GapsCard: React.FC<Properties> = ({ gap, nextHandler }) => {
 
   return (
     <div className="card shadow flex-grow max-w-screen-lg px-4 bg-white">
-      <div className="card-body">
+      <div className="card-body px-0 lg:px-4">
         <div className="card-title uppercase text-black text-center text-lg lg:text-3xl">
           {sentence}
           <div className="justify-center card-actions">
