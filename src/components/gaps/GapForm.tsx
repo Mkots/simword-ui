@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import ReactTooltip from "react-tooltip";
 
 import GapAlert from "./GapAlert";
 import { IGap } from "../../types";
@@ -26,7 +27,7 @@ const GapForm: React.FC<Properties> = ({ task, word, answer }) => {
   const [begin, end] = task.split("___");
 
   return (
-    <div className="p-10 card bg-base-200 space-y-3 px-0 lg:px-4">
+    <div className="p-10 card bg-gray-100 min-w-full space-y-3 px-0 lg:px-4">
       <form
         className="form-control flex space-y-3"
         onSubmit={handleSubmit(onSubmit)}
@@ -37,6 +38,7 @@ const GapForm: React.FC<Properties> = ({ task, word, answer }) => {
             contentEditable
             suppressContentEditableWarning
             className="underline outline-none text-blue-500"
+            data-tip={word}
             onInput={(formEvent) => {
               setValue("gapField", formEvent.currentTarget.textContent || "");
             }}
@@ -52,12 +54,20 @@ const GapForm: React.FC<Properties> = ({ task, word, answer }) => {
           </span>
           {end}
         </span>
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-primary mx-4" type="submit">
           Check
         </button>
       </form>
       {correct === false && <GapAlert variant="error" rightAnswer={answer} />}
       {correct === true && <GapAlert variant="success" />}
+      <ReactTooltip
+        place="top"
+        type="info"
+        effect="solid"
+        offset={{ top: 20 }}
+        event="focusin"
+        eventOff="focusout"
+      />
     </div>
   );
 };
