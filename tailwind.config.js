@@ -11,6 +11,9 @@ module.exports = {
       sans: ["Inter", defaultConfig.theme.fontFamily.sans],
     },
   },
+  daisyui: {
+    themes: false,
+  },
   darkMode: "media",
   plugins: [formsPlugin, daisyui],
 };

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { v4 as uuid } from "uuid";
 
-import GapsCard from "../components/gaps/GapsCard";
-import getGap from "../api/getGap";
-import LoadingOrError from "../components/LoadingOrError";
+import GapsCard from "components/gaps/GapsCard";
+import LoadingOrError from "components/LoadingOrError";
+
+import { getGap } from "api";
 
 const Gaps: React.FC = () => {
   const [gapId, setGapId] = useState(uuid());

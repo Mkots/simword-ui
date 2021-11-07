@@ -1,4 +1,4 @@
-import { TagList } from "../types";
+import { TagList } from "types";
 
 export default async function getTagsList(): Promise<TagList> {
   const result = await fetch(`/api/taglist`);

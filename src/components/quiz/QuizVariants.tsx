@@ -1,8 +1,8 @@
 import React from "react";
 
-import QuizVariant from "./QuizVariant";
+import { IExercise } from "types";
 
-import { IExercise } from "../../types";
+import QuizVariant from "./QuizVariant";
 
 type Properties = Omit<IExercise, "en">;
 
@@ -11,7 +11,7 @@ const QuizVariants: React.FC<Properties> = (properties) => {
   const correctId = variants.indexOf(correct);
   return (
     <div
-      className="card-actions grid grid-cols-2 grid-flow-row gap-0"
+      className="p-0 grid grid-cols-2 grid-flow-row gap-0"
       data-cy="QuizVariants"
     >
       {variants.map((answer, index) => (

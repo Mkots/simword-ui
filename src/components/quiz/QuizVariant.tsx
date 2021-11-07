@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import ScoreContext from "../../contexts/ScoreContext";
+
+import ScoreContext from "contexts/ScoreContext";
 
 interface Properties {
   answer: string;

@@ -4,8 +4,9 @@ import ReactDOM from "react-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { registerSW } from "virtual:pwa-register";
 import TagManager from "react-gtm-module";
+
 import "./index.css";
-import makeServer from "./api/mirage";
+import makeServer from "api/mirage";
 
 registerSW();
 
