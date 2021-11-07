@@ -1,6 +1,10 @@
 import React from "react";
-import { IGap } from "../../types";
+
+import { IGap } from "types";
+
 import GapForm from "./GapForm";
+import CardTitle from "../CardTitle";
+import NextCardButton from "../NextCardButton";
 
 interface Properties {
   gap: IGap;
@@ -13,19 +17,11 @@ const GapsCard: React.FC<Properties> = ({ gap, nextHandler }) => {
   return (
     <div className="card shadow flex-grow max-w-screen-lg px-4 bg-white">
       <div className="card-body px-0 lg:px-4">
-        <div className="card-title uppercase text-black text-center text-lg lg:text-3xl">
-          {sentence}
-          <div className="justify-center card-actions">
-            <GapForm task={task} word={word} answer={answer} />
-          </div>
+        <CardTitle>{sentence}</CardTitle>
+        <div className="justify-center card-actions uppercase text-black text-center text-lg lg:text-3xl">
+          <GapForm task={task} word={word} answer={answer} />
         </div>
-        <button
-          type="button"
-          className="btn btn-outline btn-accent my-8"
-          onClick={nextHandler}
-        >
-          Next
-        </button>
+        <NextCardButton clickHandler={nextHandler} />
       </div>
     </div>
   );

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ReactTooltip from "react-tooltip";
 
+import { IGap } from "types";
+
 import GapAlert from "./GapAlert";
-import { IGap } from "../../types";
 
 type Properties = Omit<IGap, "sentence">;
 
@@ -32,7 +33,7 @@ const GapForm: React.FC<Properties> = ({ task, word, answer }) => {
         className="form-control flex space-y-3"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <span className="text-sm lg:text-lg">
+        <span className="text-lg lg:text-3xl">
           {begin}
           <span
             contentEditable

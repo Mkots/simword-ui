@@ -1,4 +1,4 @@
-import { IGap } from "../types";
+import { IGap } from "types";
 
 export default async function getGap(id: string, tag?: number): Promise<IGap> {
   const result = await fetch(

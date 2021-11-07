@@ -1,4 +1,4 @@
-import { IWord } from "../types";
+import { IWord } from "types";
 
 export default async function getWord(
   id: string,
