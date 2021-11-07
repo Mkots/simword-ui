@@ -37,7 +37,7 @@ const GapForm: React.FC<Properties> = ({ task, word, answer }) => {
           <span
             contentEditable
             suppressContentEditableWarning
-            className="underline outline-none text-blue-500"
+            className="underline outline-none text-primary"
             data-tip={word}
             onInput={(formEvent) => {
               setValue("gapField", formEvent.currentTarget.textContent || "");
