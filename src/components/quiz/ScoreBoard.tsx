@@ -6,9 +6,14 @@ interface Properties {
 
 const ScoreBoard: React.FC<Properties> = ({ score }) => (
   <div className="w-full mt-0 stats rounded-none glass fixed bottom-0">
-    <div className="stat glass">
-      <div className="stat-value text-center text-green-900">{score}</div>
-      <div className="stat-desc">
+    <div className="stat glass" data-testid="score-container">
+      <div
+        className="stat-value text-center text-green-900"
+        data-testid="score-value"
+      >
+        {score}
+      </div>
+      <div className="stat-desc" data-testid="score-bar">
         {score <= 10 && (
           <progress
             value={score}

@@ -4,11 +4,11 @@ import ScoreContext from "contexts/ScoreContext";
 
 interface Properties {
   answer: string;
-  // eslint-disable-next-line react/require-default-props
-  correct?: boolean;
+  correct: boolean;
+  tabIndex: number;
 }
 
-const QuizVariant: React.FC<Properties> = ({ answer, correct }) => {
+const QuizVariant: React.FC<Properties> = ({ answer, correct, tabIndex }) => {
   const [score, setScore] = useContext(ScoreContext);
 
   const [clicked, setClicked] = useState<boolean>(false);
@@ -26,7 +26,8 @@ const QuizVariant: React.FC<Properties> = ({ answer, correct }) => {
         clicked ? (correct ? "btn-success" : "btn-error") : ""
       }`}
       onClick={clickHandler}
-      data-cy="QuizVariant"
+      data-testid="QuizVariant"
+      tabIndex={tabIndex}
     >
       {answer}
     </button>

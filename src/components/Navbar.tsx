@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { TabIndexes } from "../constants/tabIndexes";
 
 const Navbar: React.FC = () => (
   <div className="navbar mb-2 shadow-lg text-neutral-content glass absolute w-full z-10 justify-center">
@@ -9,6 +10,7 @@ const Navbar: React.FC = () => (
           `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
         }
         to="/"
+        tabIndex={TabIndexes.quizNavLink}
         end
       >
         Simword
@@ -18,6 +20,7 @@ const Navbar: React.FC = () => (
           `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
         }
         to="/gaps"
+        tabIndex={TabIndexes.gapFillNavLink}
         end
       >
         CAE&apos;f

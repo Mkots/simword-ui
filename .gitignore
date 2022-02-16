@@ -8,3 +8,6 @@ dist-ssr
 coverage
 .nyc_output
 /yarn-error.log
+/stats.html
+test-results/
+playwright-report/
