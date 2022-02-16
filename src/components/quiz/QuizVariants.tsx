@@ -12,13 +12,14 @@ const QuizVariants: React.FC<Properties> = (properties) => {
   return (
     <div
       className="p-0 grid grid-cols-2 grid-flow-row gap-0"
-      data-cy="QuizVariants"
+      data-testid="QuizVariants"
     >
       {variants.map((answer, index) => (
         <QuizVariant
           key={`answer_${answer}`}
           answer={answer}
           correct={index === correctId}
+          tabIndex={index + 1}
         />
       ))}
     </div>

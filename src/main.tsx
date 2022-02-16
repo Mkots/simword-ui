@@ -12,7 +12,7 @@ registerSW();
 
 const environment = process.env.NODE_ENV;
 
-if (environment !== "production") {
+if (environment !== "production" && environment !== "e2e") {
   makeServer({ environment });
 }
 

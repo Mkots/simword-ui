@@ -9,7 +9,7 @@
     "dev": "vite --open",
     "prepare": "husky install",
     "serve": "vite preview",
-    "serve:test": "start-server-and-test 'yarn serve' http://localhost:5000"
+    "test": "playwright test"
   },
   "dependencies": {
     "@types/uuid": "8.3.3",
@@ -25,6 +25,7 @@
     "vite-plugin-istanbul": "^2.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.19.0",
     "@tailwindcss/forms": "0.3.3",
     "@types/faker": "^5.5.8",
     "@types/react": "17.0.19",

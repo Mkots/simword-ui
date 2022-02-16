@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "isolatedModules": true,
     "jsx": "react",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -14,5 +14,11 @@
     "strict": true,
     "target": "ESNext"
   },
-  "include": ["src", "vite.config.ts", "global.d.ts", "../node_modules/@types"]
+  "include": [
+    "src",
+    "vite.config.ts",
+    "global.d.ts",
+    "../node_modules/@types",
+    "playwright.config.ts"
+  ]
 }
