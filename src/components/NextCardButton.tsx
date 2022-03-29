@@ -8,7 +8,7 @@ interface Properties {
 const NextCardButton: React.FC<Properties> = ({ clickHandler, children }) => (
   <button
     type="button"
-    className="btn btn-outline btn-accent my-4"
+    className="btn btn-outline btn-accent my-4 mx-8"
     onClick={clickHandler}
     tabIndex={TabIndexes.nextCard}
     aria-label="Next"

@@ -1,7 +1,8 @@
 import { createServer, Model } from "miragejs";
 import { Server } from "miragejs/server";
-import { IWord } from "../../types";
-import testData from "./testData";
+import { IGap, IGrammar, IWord } from "../../types";
+import wordsTestData from "./wordsTestData";
+import { grammarTestData } from "./grammarTestData";
 
 type ServerEnvironment = { environment?: string };
 
@@ -13,12 +14,13 @@ export default function makeServer({
 
     models: {
       exercise: Model.extend<Partial<IWord>>({}),
+      grammar: Model.extend<Partial<IGrammar>>({}),
     },
 
     routes() {
       this.namespace = "api";
 
-      this.get("exercise", (schema) => ({
+      this.get<IWord>("exercise", (schema) => ({
         exercise: schema.db.exercises.find(Math.floor(Math.random() * 5 + 1)),
       }));
 
@@ -26,16 +28,23 @@ export default function makeServer({
         tags: [1, 20, 30, 40],
       }));
 
-      this.get("gaps/exercise", () => ({
+      this.get<IGap>("gaps/exercise", () => ({
         sentence: "They all assume that Penny will provide hospitality.",
         word: "granted",
         task: "Everyone ___ Penny will provide hospitality.",
         answer: "takes it for granted that",
       }));
+
+      this.get<IGrammar>(
+        "grammar/exercise",
+        (schema) =>
+          schema.db.grammar.find(Math.floor(Math.random() * 10 + 1)) as IGrammar
+      );
     },
 
     seeds(server) {
-      server.db.loadData(testData);
+      server.db.loadData(wordsTestData);
+      server.db.loadData(grammarTestData);
     },
   });
 }

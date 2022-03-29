@@ -1,6 +1,6 @@
 import { test as base } from "@playwright/test";
 import { Word } from "../pages/Word.page";
-import testData from "../../api/mirage/testData";
+import wordsTestData from "../../api/mirage/wordsTestData";
 
 type WordFixture = {
   word: Word;
@@ -16,7 +16,7 @@ export const test = base.extend<WordFixture>({
   page: async ({ page }, use) => {
     await page.route("/api/exercise*", (route) => {
       void route.fulfill({
-        body: JSON.stringify({ exercise: testData.exercises[0] }),
+        body: JSON.stringify({ exercise: wordsTestData.exercises[0] }),
       });
     });
 

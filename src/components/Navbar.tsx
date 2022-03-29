@@ -25,6 +25,16 @@ const Navbar: React.FC = () => (
       >
         CAE&apos;f
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
+        }
+        to="/grammar"
+        tabIndex={TabIndexes.quizNavLink}
+        end
+      >
+        Grammar
+      </NavLink>
     </div>
   </div>
 );

@@ -1,11 +1,11 @@
 import { compare } from "../helpers/compareArrays";
 import { expect, test } from "../fixtures/word.fixture";
-import testData from "../../api/mirage/testData";
+import wordsTestData from "../../api/mirage/wordsTestData";
 
 test("Example", async ({ word }) => {
   let variants: Array<string>;
   let title: string | null;
-  const exercise = testData.exercises[0];
+  const exercise = wordsTestData.exercises[0];
 
   await test.step("Arrange test", async () => {
     title = await word.title.textContent();

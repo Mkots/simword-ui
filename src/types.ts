@@ -19,3 +19,10 @@ export interface IGap {
   task: string;
   answer: string;
 }
+
+export interface IGrammar {
+  task: string;
+  variants: string[];
+  correct: string;
+  tag?: string;
+}

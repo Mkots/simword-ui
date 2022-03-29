@@ -1,8 +1,9 @@
 const defaultConfig = require("tailwindcss/defaultConfig");
 const formsPlugin = require("@tailwindcss/forms");
 const daisyui = require("daisyui");
+const withAnimations = require("animated-tailwindcss");
 
-module.exports = {
+module.exports = withAnimations({
   mode: "jit",
   purge: ["index.html", "src/**/*.tsx"],
 
@@ -16,4 +17,4 @@ module.exports = {
   },
   darkMode: "media",
   plugins: [formsPlugin, daisyui],
-};
+});

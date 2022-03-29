@@ -1,4 +1,4 @@
-const testData = {
+const wordsTestData = {
   exercises: [
     {
       en: "alternatively",
@@ -33,4 +33,4 @@ const testData = {
   ],
 };
 
-export default testData;
+export default wordsTestData;

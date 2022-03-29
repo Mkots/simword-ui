@@ -5,7 +5,8 @@ import Navbar from "components/Navbar";
 import LoadingOrError from "components/LoadingOrError";
 
 const WordPage = lazy(() => import("pages/Word"));
-const Gaps = lazy(() => import("pages/Gaps"));
+const GapsPage = lazy(() => import("pages/Gaps"));
+const GrammarPage = lazy(() => import("pages/Grammar"));
 
 export default function App(): ReactElement {
   return (
@@ -14,7 +15,8 @@ export default function App(): ReactElement {
         <Navbar />
         <Routes>
           <Route path="/" element={<WordPage />} />
-          <Route path="/gaps" element={<Gaps />} />
+          <Route path="/gaps" element={<GapsPage />} />
+          <Route path="/grammar" element={<GrammarPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
