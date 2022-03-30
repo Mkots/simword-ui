@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { useQuery } from "react-query";
 import { v4 as uuid } from "uuid";
 
@@ -7,7 +7,7 @@ import LoadingOrError from "components/LoadingOrError";
 
 import { getGap } from "api";
 
-const Gaps: React.FC = () => {
+export default function GapsPage(): ReactElement {
   const [gapId, setGapId] = useState(uuid());
 
   const { isLoading, isError, error, data } = useQuery(["gapId", gapId], () =>
@@ -27,6 +27,4 @@ const Gaps: React.FC = () => {
       <GapsCard gap={data} nextHandler={nextHandler} />
     </div>
   );
-};
-
-export default Gaps;
+}
