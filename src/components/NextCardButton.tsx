@@ -3,7 +3,6 @@ import { TabIndexes } from "../constants/tabIndexes";
 
 type Properties = {
   clickHandler: () => void;
-  // eslint-disable-next-line react/require-default-props
   disabled?: boolean;
 };
 

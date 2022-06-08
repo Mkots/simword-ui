@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import ScoreContext from "contexts/ScoreContext";
+import confetti from "canvas-confetti";
 
 interface Properties {
   answer: string;
@@ -17,6 +18,15 @@ const QuizVariant: React.FC<Properties> = ({ answer, correct, tabIndex }) => {
     if (clicked) return;
     setClicked(true);
     setScore(correct ? score + 1 : score - 1);
+    if (correct) {
+      void confetti({
+        angle: 90,
+        spread: 180,
+        startVelocity: 20,
+        gravity: 0.25,
+        ticks: 100,
+      });
+    }
   };
 
   return (

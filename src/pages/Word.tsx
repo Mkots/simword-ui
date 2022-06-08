@@ -2,15 +2,15 @@ import React, { ReactElement, useState } from "react";
 import { useQuery } from "react-query";
 import { v4 as uuid } from "uuid";
 
+import { getWord, getTagList } from "api";
+
 import TabHead from "components/Head";
 import QuizCard from "components/quiz/QuizCard";
 import LoadingOrError from "components/LoadingOrError";
-import ScoreBoard from "components/quiz/ScoreBoard";
+import ScoreBoard from "components/ScoreBoard";
 
 import ScoreContext from "contexts/ScoreContext";
 import { TagList } from "types";
-
-import { getWord, getTagList } from "api";
 
 export default function WordPage(): ReactElement {
   const [wordId, setWordId] = useState(uuid());
