@@ -26,3 +26,8 @@ export interface IGrammar {
   correct: string;
   tag?: string;
 }
+
+export interface IReviser {
+  word: string;
+  translation: string;
+}
