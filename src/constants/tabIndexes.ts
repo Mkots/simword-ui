@@ -3,4 +3,5 @@ export enum TabIndexes {
   quizNavLink,
   gapFillNavLink,
   grammarNavLink,
+  reviserNavLink
 }
