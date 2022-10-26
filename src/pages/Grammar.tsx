@@ -1,12 +1,15 @@
 import React, { ReactElement, useState } from "react";
 import { useQuery } from "react-query";
 import { v4 as uuid } from "uuid";
-import GrammarCard from "../components/grammar/GrammarCard";
+
 import { getGrammar } from "../api";
+
+import GrammarCard from "../components/grammar/GrammarCard";
 import LoadingOrError from "../components/LoadingOrError";
-import ScoreBoard from "../components/quiz/ScoreBoard";
-import ScoreContext from "../contexts/ScoreContext";
+import ScoreBoard from "../components/ScoreBoard";
 import TabHead from "../components/Head";
+
+import ScoreContext from "../contexts/ScoreContext";
 
 export default function GrammarPage(): ReactElement {
   const [grammarId, setGrammarId] = useState(uuid());

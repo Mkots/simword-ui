@@ -30,7 +30,7 @@ const Navbar: React.FC = () => (
           `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
         }
         to="/grammar"
-        tabIndex={TabIndexes.quizNavLink}
+        tabIndex={TabIndexes.grammarNavLink}
         end
       >
         Grammar
