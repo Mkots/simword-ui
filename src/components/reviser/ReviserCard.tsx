@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import CardTitle from "../CardTitle";
 import NextCardButton from "../NextCardButton";
 import GapAlert from "../gaps/GapAlert";
+import ScoreContext from "../../contexts/ScoreContext";
 
 interface IProperties {
   word: string;
@@ -21,6 +22,7 @@ const ReviserCard: React.FC<IProperties> = ({
   nextHandler,
 }) => {
   const [correct, setCorrect] = useState<boolean | undefined>();
+  const [score, setScore] = useContext(ScoreContext);
   const { register, handleSubmit } = useForm<GapField>();
 
   const onSubmit: SubmitHandler<GapField> = (data) => {
@@ -29,8 +31,10 @@ const ReviserCard: React.FC<IProperties> = ({
       data.gapField.trim().toLowerCase() === translation.trim().toLowerCase()
     ) {
       setCorrect(true);
+      setScore(score + 1);
     } else {
       setCorrect(false);
+      setScore(score - 1);
     }
   };
 
