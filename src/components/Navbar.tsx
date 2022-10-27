@@ -35,6 +35,16 @@ const Navbar: React.FC = () => (
       >
         Grammar
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
+        }
+        to="/revise"
+        tabIndex={TabIndexes.reviserNavLink}
+        end
+      >
+        Reviser
+      </NavLink>
     </div>
   </div>
 );

@@ -10,7 +10,7 @@ const GapAlert: React.FC<Properties> = ({ variant, rightAnswer }) => {
   const fail = useMemo(() => variant === "error", [variant]);
 
   return (
-    <div role="alert">
+    <div role="alert" className="my-1.5">
       <div
         className={`${
           fail ? "bg-red-500" : "bg-green-500"
