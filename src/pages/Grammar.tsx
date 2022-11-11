@@ -5,9 +5,9 @@ import { v4 as uuid } from "uuid";
 import GrammarCard from "../components/grammar/GrammarCard";
 import { getGrammar } from "../api";
 import LoadingOrError from "../components/LoadingOrError";
-import ScoreBoard from "../components/quiz/ScoreBoard";
 import ScoreContext from "../contexts/ScoreContext";
 import TabHead from "../components/Head";
+import ScoreBoard from "../components/ScoreBoard";
 
 export default function GrammarPage(): ReactElement {
   const [grammarId, setGrammarId] = useState(uuid());
