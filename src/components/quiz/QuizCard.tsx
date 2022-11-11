@@ -3,8 +3,7 @@ import React from "react";
 import { IWord } from "types";
 
 import QuizVariants from "./QuizVariants";
-import CardTitle from "../CardTitle";
-import NextCardButton from "../NextCardButton";
+import Card from "../common/Card";
 
 interface IProperties {
   // eslint-disable-next-line react/require-default-props
@@ -19,14 +18,13 @@ const QuizCard: React.FC<IProperties> = ({ word, nextHandler }) => {
   } = word;
 
   return (
-    <div
-      className="card shadow flex-grow max-w-screen-lg px-4 bg-white"
-      data-cy="QuizCard"
+    <Card
+      testId="Quiz"
+      title={en}
+      nextButtonOptions={{ nextButtonHandler: nextHandler }}
     >
-      <CardTitle>{en}</CardTitle>
       <QuizVariants correct={correct} variants={variants} />
-      <NextCardButton clickHandler={nextHandler} />
-    </div>
+    </Card>
   );
 };
 
