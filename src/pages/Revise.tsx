@@ -1,11 +1,11 @@
 import React, { ReactElement, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 
-import ScoreBoard from "../components/quiz/ScoreBoard";
 import ScoreContext from "../contexts/ScoreContext";
 import TabHead from "../components/Head";
 import ReviserCard from "../components/reviser/ReviserCard";
 import { database } from "../api/database/database";
+import ScoreBoard from "../components/ScoreBoard";
 
 export default function ReviserPage(): ReactElement {
   const [reviseId, setReviseId] = useState(1);
