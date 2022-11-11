@@ -46,7 +46,7 @@ export default function makeServer({
       this.get<IReviser>(
         "revise/exercise",
         (schema) =>
-          schema.db.reviser.find(Math.floor(Math.random() * 86 + 1)) as IReviser
+          schema.db.reviser.find(Math.floor(Math.random() * 5 + 1)) as IReviser
       );
     },
 

@@ -12,6 +12,11 @@ export default defineConfig(({ mode }) => ({
     reactRefresh(),
     VitePWA({
       registerType: "autoUpdate",
+      mode: "development",
+      base: "/",
+      strategies: "generateSW",
+      filename: "sw.js",
+      injectRegister: "script",
       manifest: {
         theme_color: "#BD34FE",
         icons: [
