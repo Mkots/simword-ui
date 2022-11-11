@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { IGrammar } from "../../types";
-import GrammarVariant from "./GrammarVariant";
-import RightAnswerContext from "../../contexts/RightAnswerContext";
-import Card from "../Card";
+import GrammarVariants from "./GrammarVariants";
+import Card from "../common/Card";
 
 type IProperties = IGrammar & { nextHandler: () => void };
 
@@ -15,24 +14,22 @@ const GrammarCard: React.FC<IProperties> = ({
 }) => {
   const rightAnswerState = useState(false);
   const [isRightAnswerClicked] = rightAnswerState;
+
   return (
     <Card
-      nextHandler={nextHandler}
-      isRightAnswerClicked={isRightAnswerClicked}
-      cardTitle={task}
-      badgeText={tag}
+      testId="Grammar"
+      title={task}
+      nextButtonOptions={{
+        nextButtonHandler: nextHandler,
+        disabled: !isRightAnswerClicked,
+      }}
+      badge={{ badgeContent: tag || "Coming soon", badgeOrientation: "right" }}
     >
-      <RightAnswerContext.Provider value={rightAnswerState}>
-        <div className="flex flex-col space-y-3 w-auto items-stretch text-center">
-          {variants.map((variant) => (
-            <GrammarVariant
-              correct={variant === correct}
-              variant={variant}
-              key={variant.slice(0, 3)}
-            />
-          ))}
-        </div>
-      </RightAnswerContext.Provider>
+      <GrammarVariants
+        rightAnswerState={rightAnswerState}
+        variants={variants}
+        correct={correct}
+      />
     </Card>
   );
 };
