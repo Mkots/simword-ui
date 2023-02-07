@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { database } from "../../api/database/database";
 
-import CardTitle from "../CardTitle";
+import CardTitle from "../common/CardTitle";
 
 interface DictionaryBulk {
   bulkWords: string;

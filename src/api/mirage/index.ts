@@ -1,9 +1,10 @@
 import { createServer, Model } from "miragejs";
 import { Server } from "miragejs/server";
-import { IGap, IGrammar, IReviser, IWord } from "../../types";
+import { IGap, IGrammar, IPair, IReviser, IWord } from "../../types";
 import wordsTestData from "./wordsTestData";
 import { grammarTestData } from "./grammarTestData";
 import { reviserTestData } from "./reviserTestData";
+import { pairsTestData } from "./pairsTestData";
 
 type ServerEnvironment = { environment?: string };
 
@@ -17,6 +18,7 @@ export default function makeServer({
       exercise: Model.extend<Partial<IWord>>({}),
       grammar: Model.extend<Partial<IGrammar>>({}),
       reviser: Model.extend<Partial<IReviser>>({}),
+      pair: Model.extend<Partial<IPair>>({}),
     },
 
     routes() {
@@ -48,12 +50,19 @@ export default function makeServer({
         (schema) =>
           schema.db.reviser.find(Math.floor(Math.random() * 5 + 1)) as IReviser
       );
+
+      this.get<IPair>(
+        "pair/exercise",
+        (schema) =>
+          schema.db.pair.find(Math.floor(Math.random() * 399 + 1)) as IPair
+      );
     },
 
     seeds(server) {
       server.db.loadData(wordsTestData);
       server.db.loadData(grammarTestData);
       server.db.loadData(reviserTestData);
+      server.db.loadData(pairsTestData);
     },
   });
 }
