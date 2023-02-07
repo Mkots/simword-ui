@@ -1,5 +1,5 @@
 import React from "react";
-import CardTitle from "../CardTitle";
+import CardTitle from "./CardTitle";
 import NextCardButton from "../NextCardButton";
 
 interface IProperties {

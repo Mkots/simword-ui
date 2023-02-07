@@ -31,3 +31,9 @@ export interface IReviser {
   word: string;
   translation: string;
 }
+
+export interface IPair {
+  word: string;
+  synonyms: Array<string>;
+  antonyms: Array<string>;
+}
