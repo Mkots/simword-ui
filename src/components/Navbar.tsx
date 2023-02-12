@@ -4,7 +4,8 @@ import { TabIndexes } from "../constants/tabIndexes";
 
 const Navbar: React.FC = () => (
   <div className="navbar mb-2 shadow-lg text-neutral-content glass absolute w-full z-10 justify-center">
-    <div className="flex items-stretch w-1/2 justify-evenly">
+    <div className="navbar-start" />
+    <div className="navbar-center">
       <NavLink
         className={({ isActive }) =>
           `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
@@ -44,6 +45,17 @@ const Navbar: React.FC = () => (
         end
       >
         Reviser
+      </NavLink>
+    </div>
+    <div className="navbar-end">
+      <NavLink
+        className={({ isActive }) =>
+          `btn btn-ghost btn-sm rounded-btn ${isActive ? "glass" : ""}`
+        }
+        to="/login"
+        end
+      >
+        Login
       </NavLink>
     </div>
   </div>

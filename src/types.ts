@@ -27,6 +27,19 @@ export interface IGrammar {
   tag?: string;
 }
 
+export interface StrapiGrammar {
+  data: {
+    attributes: {
+      Task: string;
+      Option: Array<{
+        id: number;
+        Variant: string;
+        Correct: boolean;
+      }>;
+    };
+  };
+}
+
 export interface IReviser {
   word: string;
   translation: string;

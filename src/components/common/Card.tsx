@@ -10,8 +10,8 @@ interface IProperties {
     badgeContent: React.ReactElement | string;
     badgeOrientation: "left" | "right";
   };
-  nextButtonOptions: {
-    nextButtonHandler: () => void;
+  nextButtonOptions?: {
+    nextButtonHandler?: () => void;
     disabled?: boolean;
   };
 }
@@ -40,10 +40,12 @@ const Card: React.FC<IProperties> = ({
     )}
     <CardTitle>{title}</CardTitle>
     {children}
-    <NextCardButton
-      clickHandler={nextButtonOptions.nextButtonHandler}
-      disabled={nextButtonOptions.disabled}
-    />
+    {nextButtonOptions?.nextButtonHandler ? (
+      <NextCardButton
+        clickHandler={nextButtonOptions.nextButtonHandler}
+        disabled={nextButtonOptions.disabled}
+      />
+    ) : null}
   </div>
 );
 

@@ -11,6 +11,7 @@ const ReviserPage = lazy(() => import("pages/Revise"));
 const PairsPage = lazy(() => import("pages/Pairs"));
 const UploadPage = lazy(() => import("pages/Upload"));
 const DictionaryListPage = lazy(() => import("pages/DictionaryList"));
+const LoginPage = lazy(() => import("pages/Login"));
 
 export default function App(): ReactElement {
   return (
@@ -25,6 +26,7 @@ export default function App(): ReactElement {
           <Route path="/pairs" element={<PairsPage />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/dictionary" element={<DictionaryListPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

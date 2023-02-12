@@ -1,11 +1,16 @@
-import { IGrammar } from "../types";
+import { StrapiGrammar } from "../types";
 
 export default async function getGrammar(
-  id: string,
-  tag?: number
-): Promise<IGrammar> {
+  id: number,
+  token: string | null
+): Promise<StrapiGrammar> {
   const result = await fetch(
-    `/api/grammar/exercise?id=${id}${tag ? `&tag=${tag}` : ""}`
+    `http://localhost:1337/api/grammar-exercises/${id}?populate=Option`,
+    {
+      headers: new Headers({
+        Authorization: `Bearer ${token || ""}`,
+      }),
+    }
   );
-  return result.json() as Promise<IGrammar>;
+  return result.json() as Promise<StrapiGrammar>;
 }

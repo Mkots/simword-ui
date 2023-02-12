@@ -1,26 +1,29 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useContext, useState } from "react";
 import { useQuery } from "react-query";
-import { v4 as uuid } from "uuid";
 
 import GrammarCard from "../components/grammar/GrammarCard";
-import { getGrammar } from "../api";
 import LoadingOrError from "../components/LoadingOrError";
-import ScoreContext from "../contexts/ScoreContext";
 import TabHead from "../components/Head";
 import ScoreBoard from "../components/ScoreBoard";
+import { getGrammar } from "../api";
+import ScoreContext from "../contexts/ScoreContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function GrammarPage(): ReactElement {
-  const [grammarId, setGrammarId] = useState(uuid());
+  const [grammarId, setGrammarId] = useState(2);
   const scoreState = useState(0);
   const [score] = scoreState;
 
+  const { state: userData } = useContext(AuthContext);
+  const { token } = userData;
+
   const { isLoading, isError, error, data } = useQuery(
     ["grammarId", grammarId],
-    () => getGrammar(grammarId)
+    () => getGrammar(grammarId, token)
   );
 
   const nextHandler = () => {
-    setGrammarId(uuid());
+    setGrammarId(grammarId + 1);
   };
 
   return (
