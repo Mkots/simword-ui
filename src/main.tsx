@@ -6,15 +6,16 @@ import { registerSW } from "virtual:pwa-register";
 import TagManager from "react-gtm-module";
 
 import "./index.css";
-import makeServer from "api/mirage";
+// import makeServer from "api/mirage";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 registerSW();
 
-const environment = process.env.NODE_ENV;
+// const environment = process.env.NODE_ENV;
 
-if (environment !== "production" && environment !== "e2e") {
-  makeServer({ environment });
-}
+// if (environment !== "production" && environment !== "e2e") {
+//   makeServer({ environment });
+// }
 
 const tagManagerArguments = {
   gtmId: "GTM-TB2XM7N",
@@ -34,9 +35,11 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
+    <AuthContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.querySelector("#root")
 );

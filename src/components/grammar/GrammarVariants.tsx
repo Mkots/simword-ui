@@ -4,22 +4,24 @@ import GrammarVariant from "./GrammarVariant";
 
 interface IProperties {
   rightAnswerState: [boolean, Dispatch<SetStateAction<boolean>>];
-  variants: Array<string>;
-  correct: string;
+  Option: Array<{
+    id: number;
+    Variant: string;
+    Correct: boolean;
+  }>;
 }
 
 const GrammarVariants: React.FC<IProperties> = ({
   rightAnswerState,
-  variants,
-  correct,
+  Option,
 }) => (
   <RightAnswerContext.Provider value={rightAnswerState}>
     <div className="flex flex-col space-y-3 w-auto items-stretch text-center">
-      {variants.map((variant) => (
+      {Option.map((option) => (
         <GrammarVariant
-          correct={variant === correct}
-          variant={variant}
-          key={variant.slice(0, 3)}
+          correct={option.Correct}
+          variant={option.Variant}
+          key={`${option.Variant}_${option.id}`}
         />
       ))}
     </div>
